@@ -69,14 +69,24 @@ section {
   grid-template-columns: 1fr 1fr;
   gap: 2rem;
 }
+/* Grid de mockups */
 .images-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
-  gap: 1rem;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 1.5rem;
+  text-align: center;
 }
-.images-grid img {
+.mockup-item img {
   width: 100%;
   border-radius: 6px;
+  object-fit: cover;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+.mockup-item .categoria {
+  margin-top: 0.5rem;
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: #5c6f85;
 }
 
 .oferta {
@@ -100,25 +110,7 @@ footer {
 footer p + p {
   margin-top: 1rem;
 }
-/* Grid de mockups */
-.images-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-  gap: 1.5rem;
-  text-align: center;
-}
-.mockup-item img {
-  width: 100%;
-  border-radius: 6px;
-  object-fit: cover;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-}
-.mockup-item .categoria {
-  margin-top: 0.5rem;
-  font-size: 0.95rem;
-  font-weight: 500;
-  color: #5c6f85;
-}
+
 /* Fade-in animation */
 .fade-in {
   opacity: 0;
