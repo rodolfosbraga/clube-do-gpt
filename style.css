@@ -2,12 +2,37 @@
 * { margin: 0; padding: 0; box-sizing: border-box; }
 
 body {
-  font-family: 'Roboto', sans-serif;
+  font-family: 'Inter', sans-serif;
   color: #222;
   line-height: 1.6;
   background: #fafafa;
 }
 
+/* Font Styles */
+.playfair { font-family: 'Playfair Display', serif; }
+.inter { font-family: 'Inter', sans-serif; }
+
+/* CTA Button Interactions */
+.cta-btn {
+  ...
+
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.cta-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
+
+/* Reveal Animations */
+.fade-in {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+.fade-in.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
 /* Hero */
 .hero {
   background: #333 url('hero-bg.jpg') center/cover no-repeat;
