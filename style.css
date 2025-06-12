@@ -7,7 +7,7 @@
 body {
   font-family: 'Inter', sans-serif;
   color: #222;
-  background: #fafafa;
+  background: #fafafa; /* 👈 Isso já é um cinza bem claro */
   line-height: 1.6;
 }
 
