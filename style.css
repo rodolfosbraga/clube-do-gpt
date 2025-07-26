@@ -6,20 +6,20 @@
    Variáveis de Cores
    ---------------------------- */
 :root {
-  --bg-dark:       #101418;    /* Fundo preto profundo */
-  --bg-alt:        #181818;    /* Fundo alternativo (header/footer background) */
-  --bg-section:    #ffffff;    /* Cards e seções em branco total */
-  --text-primary:  #ffffff;    /* Textos principais em branco */
-  --text-secondary:#cccccc;    /* Textos secundários em cinza claro */
-  --gold-light:    #D1B272;    /* Dourado fosco */
-  --gold-dark:     #BFA980;    /* Dourado escuro */
-  --cta-bg:        var(--gold-light);  /* CTA em dourado */
-  --cta-hover:     var(--gold-dark);   /* CTA hover dourado escuro */
-  --shadow:        rgba(0,0,0,0.1);    /* Sombra leve */
+  --bg-dark:        #101418;    /* Fundo preto profundo */
+  --bg-alt:         #181818;    /* Fundo alternativo (footer) */
+  --bg-section:     #ffffff;    /* Cartões e seções em branco total */
+  --text-primary:   #ffffff;    /* Texto principal em branco */
+  --text-secondary: #cccccc;    /* Texto secundário em cinza claro */
+  --gold-light:     #D1B272;    /* Dourado fosco */
+  --gold-dark:      #BFA980;    /* Dourado escuro */
+  --cta-bg:         var(--gold-light);
+  --cta-hover:      var(--gold-dark);
+  --shadow:         rgba(0,0,0,0.1); /* Sombra leve */
 }
 
 /* ----------------------------
-   Reset & Base
+   Reset & Base Styles
    ---------------------------- */
 * {
   margin: 0;
@@ -34,8 +34,25 @@ body {
   line-height: 1.6;
 }
 
-/* Centraliza containers principais */
-.hero-content,
+/* ----------------------------
+   Hero / Header
+   ---------------------------- */
+.hero {
+  width: 100%;
+  height: 600px; /* ajustável: entre 500px e 700px */
+  overflow: hidden;
+}
+.hero-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+}
+
+/* ----------------------------
+   Centralização de Containers
+   ---------------------------- */
 main > section,
 footer p {
   max-width: 900px;
@@ -43,56 +60,23 @@ footer p {
   padding: 0 1rem;
 }
 
-/* Títulos com Lora */
+/* ----------------------------
+   Tipografia
+   ---------------------------- */
+/* Títulos */
 h1, h2, h3, .playfair {
   font-family: 'Lora', serif;
   color: var(--text-primary);
 }
 
-/* Textos com Montserrat */
-.inter, p, li, .categoria, .subheadline {
+/* Corpo do texto */
+.inter, p, li, .categoria {
   font-family: 'Montserrat', sans-serif;
   color: var(--text-primary);
 }
 
 /* ----------------------------
-   Hero Section
-   ---------------------------- */
-.hero {
-  background: var(--bg-alt) url('hero-bg.jpg') center/cover no-repeat;
-  padding: 6rem 1rem;
-  text-align: center;
-}
-.hero h1 {
-  font-size: 2.5rem;
-  margin-bottom: 1rem;
-}
-.subheadline {
-  font-size: 1.2rem;
-  margin-bottom: 2rem;
-}
-
-/* ----------------------------
-   Botão CTA
-   ---------------------------- */
-.cta-btn {
-  display: inline-block;
-  padding: 1rem 2rem;
-  background: var(--cta-bg);
-  color: var(--text-primary);
-  font-weight: 600;
-  text-decoration: none;
-  border-radius: 5px;
-  transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
-}
-.cta-btn:hover {
-  background: var(--cta-hover);
-  transform: translateY(-2px);
-  box-shadow: 0 4px 12px var(--shadow);
-}
-
-/* ----------------------------
-   Seções (Cards)
+   Cards / Seções
    ---------------------------- */
 main > section {
   background: var(--bg-section);
@@ -102,15 +86,14 @@ main > section {
   padding: 4rem 2rem;
 }
 
-/* Parágrafo de Conexão */
+/* Conexão Emocional */
 .conexao p {
   font-size: 1.1rem;
   color: var(--text-secondary);
 }
 
-/* Listas de Benefícios e Público */
-.beneficios ul,
-.publico ul {
+/* Benefícios */
+.beneficios ul, .publico ul {
   list-style: none;
   padding-left: 0;
 }
@@ -118,10 +101,15 @@ main > section {
   content: '✅ ';
   color: var(--gold-light);
 }
+
+/* Para quem é / Não é */
 .publico {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 2rem;
+}
+.publico li {
+  margin-bottom: 0.5rem;
 }
 
 /* ----------------------------
@@ -132,6 +120,11 @@ main > section {
   grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
   gap: 1.5rem;
   text-align: center;
+}
+.mockup-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 .mockup-item img {
   width: 100%;
@@ -161,11 +154,24 @@ main > section {
   font-size: 1rem;
   color: var(--text-secondary);
 }
-.oferta a.cta-btn {
-  background: var(--gold-light);
+
+/* ----------------------------
+   Botões CTA
+   ---------------------------- */
+.cta-btn {
+  display: inline-block;
+  padding: 1rem 2rem;
+  background: var(--cta-bg);
+  color: var(--text-primary);
+  font-weight: 600;
+  text-decoration: none;
+  border-radius: 5px;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
 }
-.oferta a.cta-btn:hover {
-  background: var(--gold-dark);
+.cta-btn:hover {
+  background: var(--cta-hover);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px var(--shadow);
 }
 
 /* ----------------------------
@@ -201,13 +207,15 @@ footer p + p {
   .publico {
     grid-template-columns: 1fr;
   }
-  .hero h1 {
+  h1 {
     font-size: 2rem;
+  }
+  .hero {
+    height: 400px;
   }
 }
 
 @media (max-width: 600px) {
-  /* Ajusta grid de mockups */
   .images-grid {
     grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
   }
