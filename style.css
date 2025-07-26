@@ -105,7 +105,7 @@ main > section {
 .beneficios li {
   margin-bottom: 0.5rem;
 }
-.beneficios li::before {
+/*.beneficios li::before {
   content: '✅ ';
   color: var(--color-accent);
 }
