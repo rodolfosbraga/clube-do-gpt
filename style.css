@@ -1,50 +1,44 @@
 /* =====================================================
-   style.css — Paleta Azul (imagem)
-   Fundo escuro, branco e azuis com detalhes vibrantes
+   Variáveis de Cores — Paleta Azul da sua Imagem
    ===================================================== */
-
-/* ----------------------------
-   Variáveis de Cores
-   ---------------------------- */
 :root {
-  --color-header-bg:    #023E73;  /* header escuro */
-  --color-body-bg:      #D8E3F2;  /* fundo geral bem claro */
-  --color-section-bg:   #FFFFFF;  /* fundo dos cards/seções */
-  --color-footer-bg:    #0420BF;  /* footer vibrante */
-  --color-text:         #023E73;  /* texto principal */
-  --color-text-light:   #91B7D9;  /* texto secundário */
-  --color-accent:       #0420BF;  /* destaque principal */
-  --color-accent-light: #4973F2;  /* hover / subtítulo */
-  --btn-bg:             var(--color-accent);
-  --btn-hover:          var(--color-accent-light);
-  --shadow:             rgba(0, 0, 0, 0.1);
+  --color-header-bg:    #023E73;   /* header escuro */
+  --color-body-bg:      #D8E3F2;   /* fundo geral */
+  --color-section-bg:   #FFFFFF;   /* cards/seções */
+  --color-footer-bg:    #0420BF;   /* footer vibrante */
+  --color-text-primary: #023E73;   /* texto principal */
+  --color-text-light:   #91B7D9;   /* texto secundário */
+  --color-accent:       #0420BF;   /* destaque / ícones */
+  --color-accent-hover: #4973F2;   /* hover nos botões */
+  --shadow-light:       rgba(0,0,0,0.1);
 }
 
-/* ----------------------------
+/* =====================================================
    Reset & Base
-   ---------------------------- */
+   ===================================================== */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
+
 body {
-  font-family: 'Montserrat', sans-serif;
   background-color: var(--color-body-bg);
-  color: var(--color-text);
+  color: var(--color-text-primary);
+  font-family: 'Montserrat', sans-serif;
   line-height: 1.6;
 }
 
-/* ----------------------------
+/* =====================================================
    Header / Hero
-   ---------------------------- */
-.hero {
+   ===================================================== */
+header.hero {
   width: 100%;
-  height: 600px;             /* altura recomendada */
+  height: 600px;
   background-color: var(--color-header-bg);
   overflow: hidden;
 }
-.hero-img {
+header.hero img.hero-img {
   width: 100%;
   height: 100%;
   object-fit: cover;
@@ -52,9 +46,9 @@ body {
   display: block;
 }
 
-/* ----------------------------
-   Centralização
-   ---------------------------- */
+/* =====================================================
+   Centralização Geral
+   ===================================================== */
 main > section,
 footer p {
   max-width: 900px;
@@ -62,187 +56,205 @@ footer p {
   padding: 0 1rem;
 }
 
-/* ----------------------------
+/* =====================================================
    Tipografia
-   ---------------------------- */
-/* Cabeçalhos */
+   ===================================================== */
+/* Títulos */
 h1, h2, h3, .playfair {
   font-family: 'Lora', serif;
-  color: var(--color-text);
+  color: var(--color-text-primary);
 }
-/* Textos do corpo */
-.inter, p, li, .categoria {
-  font-family: 'Montserrat', sans-serif;
-  color: var(--color-text);
-}
-/* Subtítulos ou detalhes */
+/* Subheadline / detalhes */
 .subheadline {
   color: var(--color-text-light);
 }
+/* Corpo de texto */
+.inter, p, li, .categoria {
+  font-family: 'Montserrat', sans-serif;
+  color: var(--color-text-primary);
+}
 
-/* ----------------------------
-   Seções / Cards
-   ---------------------------- */
-main > section {
+/* =====================================================
+   Seções Comuns (cards brancos)
+   ===================================================== */
+section.conexao,
+section.beneficios,
+section.publico,
+section.mockups,
+section.oferta {
   background: var(--color-section-bg);
   border-radius: 12px;
-  box-shadow: 0 4px 12px var(--shadow);
+  box-shadow: 0 4px 12px var(--shadow-light);
   margin-top: 2rem;
   padding: 3rem 2rem;
 }
 
-/* Conexão Emocional */
-.conexao p {
+/* =====================================================
+   Conexão Emocional
+   ===================================================== */
+section.conexao p {
   font-size: 1.1rem;
   color: var(--color-text-light);
 }
 
-/* Benefícios */
-.beneficios ul {
-  list-style: none;
-  padding-left: 0;
+/* =====================================================
+   Benefícios
+   ===================================================== */
+section.beneficios h2 {
+  margin-bottom: 1rem;
 }
-.beneficios li {
+section.beneficios ul {
+  list-style: none;
+}
+section.beneficios li {
   margin-bottom: 0.5rem;
 }
-/*.beneficios li::before {
+/*section.beneficios li::before {
   content: '✅ ';
   color: var(--color-accent);
 }
 
-/* Público */
-.publico {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
+/* =====================================================
+   Para quem é / Não é para quem
+   ===================================================== */
+section.publico {
+  display: flex;
   gap: 2rem;
+  flex-wrap: wrap;
 }
-.publico ul {
+section.publico > div {
+  flex: 1;
+  min-width: 250px;
+}
+section.publico h3 {
+  margin-bottom: 1rem;
+  color: var(--color-text-primary);
+}
+section.publico ul {
   list-style: none;
-  padding-left: 0;
 }
-.publico li {
+section.publico .inter li {
   margin-bottom: 0.5rem;
 }
-.publico li::before {
+section.publico .inter li::before {
+  /* aplica ✔️ na primeira coluna e ❌ na segunda */
+}
+section.publico > div:first-child .inter li::before {
   content: '✔️ ';
   color: var(--color-accent);
 }
+section.publico > div:last-child .inter li::before {
+  content: '❌ ';
+  color: #E63946;
+}
 
-/* ----------------------------
+/* =====================================================
    Mockups / Categorias
-   ---------------------------- */
-.images-grid {
+   ===================================================== */
+section.mockups h2 {
+  margin-bottom: 0.5rem;
+}
+section.mockups .descricao {
+  margin-bottom: 2rem;
+  color: var(--color-text-light);
+}
+section.mockups .images-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(180px,1fr));
   gap: 1.5rem;
+}
+section.mockups .mockup-item {
   text-align: center;
 }
-.mockup-item {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-.mockup-item img {
+section.mockups .mockup-item img {
   width: 100%;
-  max-width: 220px;
   border-radius: 8px;
   object-fit: cover;
-  box-shadow: 0 2px 8px var(--shadow);
-  transition: transform 0.3s ease;
+  box-shadow: 0 2px 8px var(--shadow-light);
+  transition: transform .3s;
 }
-.mockup-item img:hover {
+section.mockups .mockup-item img:hover {
   transform: scale(1.03);
 }
-.categoria {
-  margin-top: 0.5rem;
-  font-size: 0.95rem;
-  font-weight: 500;
+section.mockups .mockup-item .categoria {
+  margin-top: .5rem;
+  font-size: .95rem;
   color: var(--color-text-light);
 }
 
-/* ----------------------------
+/* =====================================================
    Oferta
-   ---------------------------- */
-.oferta .price {
-  font-size: 2.5rem;
-  color: var(--color-text);
-  margin: 1rem 0;
+   ===================================================== */
+section.oferta h2 {
+  margin-bottom: 1rem;
 }
-.oferta .price span {
+section.oferta .price {
+  font-size: 2.5rem;
+  color: var(--color-text-primary);
+}
+section.oferta .price span {
   font-size: 1rem;
   color: var(--color-text-light);
 }
+section.oferta p {
+  margin: .5rem 0;
+}
 
-/* ----------------------------
+/* =====================================================
    Botões CTA
-   ---------------------------- */
+   ===================================================== */
 .cta-btn {
   display: inline-block;
-  padding: 1rem 2rem;
-  background: var(--btn-bg);
+  background: var(--btn-bg, var(--color-accent));
   color: #fff;
-  font-weight: 600;
-  text-decoration: none;
-  border-radius: 5px;
-  transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+  padding:1rem 2rem;
+  font-weight:600;
+  text-decoration:none;
+  border-radius:5px;
+  transition:background .2s,transform .2s,box-shadow .2s;
 }
 .cta-btn:hover {
-  background: var(--btn-hover);
+  background: var(--btn-hover, var(--color-accent-hover));
   transform: translateY(-2px);
-  box-shadow: 0 4px 12px var(--shadow);
+  box-shadow: 0 4px 12px var(--shadow-light);
 }
 
-/* ----------------------------
+/* =====================================================
    Fade-in Animation
-   ---------------------------- */
+   ===================================================== */
 .fade-in {
   opacity: 0;
   transform: translateY(20px);
-  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+  transition:opacity .8s ease-out,transform .8s ease-out;
 }
 .fade-in.visible {
   opacity: 1;
   transform: translateY(0);
 }
 
-/* ----------------------------
+/* =====================================================
    Footer
-   ---------------------------- */
+   ===================================================== */
 footer {
   background: var(--color-footer-bg);
-  padding: 2rem 1rem;
-  text-align: center;
-  color: #fff;
+  padding:2rem 1rem;
+  text-align:center;
+  color:#fff;
 }
 footer p + p {
-  margin-top: 1rem;
+  margin-top:1rem;
 }
 
-/* ----------------------------
+/* =====================================================
    Responsividade
-   ---------------------------- */
-@media (max-width: 768px) {
-  .publico {
-    grid-template-columns: 1fr;
-  }
-  .hero {
-    height: 400px;
-  }
-  h1 {
-    font-size: 2rem;
-  }
+   ===================================================== */
+@media(max-width:768px) {
+  h1 { font-size:2rem; }
+  section.publico { flex-direction:column; }
+  header.hero { height:400px; }
 }
-
-@media (max-width: 600px) {
-  .images-grid {
-    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+@media(max-width:600px) {
+  section.mockups .images-grid {
+    grid-template-columns:repeat(auto-fit,minmax(140px,1fr));
   }
-}
-
-/* ----------------------------
-   Classe para destacar texto
-   ---------------------------- */
-.highlight {
-  color: var(--color-accent);
-  font-weight: 700;
 }
