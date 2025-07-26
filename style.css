@@ -245,7 +245,73 @@ section.testimonials p {
   font-weight: 600;
   color: var(--color-text-primary);
 }
+/* =====================================================
+   FAQ — estilo “accordion” escuro
+   ===================================================== */
+section.faq {
+  max-width: 900px;
+  margin: 2rem auto;
+  padding: 0 1rem;
+}
 
+/* container de cada item */
+section.faq details {
+  background: #232323;
+  border-radius: 8px;
+  margin-bottom: 1rem;
+  overflow: hidden;
+}
+
+/* cabeçalho clicável */
+section.faq summary {
+  list-style: none;
+  margin: 0;
+  padding: 1rem 1.5rem;
+  cursor: pointer;
+  color: #ffffff;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1rem;
+  position: relative;
+}
+
+/* remove o marcador padrão */
+section.faq summary::-webkit-details-marker {
+  display: none;
+}
+
+/* seta na direita */
+section.faq summary::after {
+  content: '▼';
+  position: absolute;
+  right: 1.5rem;
+  top: 50%;
+  transform: translateY(-50%) rotate(0deg);
+  transition: transform 0.2s ease;
+  color: #91B7D9;
+}
+
+/* seta girada quando aberto */
+section.faq details[open] summary::after {
+  transform: translateY(-50%) rotate(180deg);
+}
+
+/* conteúdo interno */
+section.faq details p {
+  margin: 0;
+  padding: 1rem 1.5rem;
+  background: #1a1a1a;
+  color: #e0e0e0;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+
+/* duas colunas no grid de FAQ */
+section.faq .faq-columns {
+  display: grid;
+  grid-template-columns: repeat(auto-fit,minmax(280px,1fr));
+  gap: 1rem;
+}
 /* ----------------------------
    Botões CTA
    ---------------------------- */
