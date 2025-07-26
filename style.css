@@ -1,19 +1,26 @@
 /* =====================================================
-   Variáveis de Cores (Paleta 1)
+   style.css — Tema 3: Preto Profundo + Branco + Dourado Elegante
    ===================================================== */
+
+/* ----------------------------
+   Variáveis de Cores
+   ---------------------------- */
 :root {
-  --bg-deep: #19202D;        /* Fundo escuro azul petróleo */
-  --bg-section: #F5F7FA;     /* Cinza muito claro para cards/seções */
-  --text-primary: #222D3D;   /* Cinza escuro quase preto */
-  --text-secondary: #5E6E82; /* Azul acinzentado para detalhes */
-  --gold-light: #F7B731;     /* Dourado discreto */
-  --gold-dark: #F9D923;      /* Dourado mais forte */
-  --cta-accent: #23A8F2;     /* Azul claro vibrante para CTAs */
+  --bg-dark:       #101418;    /* Fundo preto profundo */
+  --bg-alt:        #181818;    /* Fundo alternativo (header/footer background) */
+  --bg-section:    #ffffff;    /* Cards e seções em branco total */
+  --text-primary:  #ffffff;    /* Textos principais em branco */
+  --text-secondary:#cccccc;    /* Textos secundários em cinza claro */
+  --gold-light:    #D1B272;    /* Dourado fosco */
+  --gold-dark:     #BFA980;    /* Dourado escuro */
+  --cta-bg:        var(--gold-light);  /* CTA em dourado */
+  --cta-hover:     var(--gold-dark);   /* CTA hover dourado escuro */
+  --shadow:        rgba(0,0,0,0.1);    /* Sombra leve */
 }
 
-/* =====================================================
+/* ----------------------------
    Reset & Base
-   ===================================================== */
+   ---------------------------- */
 * {
   margin: 0;
   padding: 0;
@@ -22,12 +29,12 @@
 
 body {
   font-family: 'Montserrat', sans-serif;
-  background-color: var(--bg-deep);
+  background-color: var(--bg-dark);
   color: var(--text-primary);
   line-height: 1.6;
 }
 
-/* Centralização de containers principais */
+/* Centraliza containers principais */
 .hero-content,
 main > section,
 footer p {
@@ -36,127 +43,116 @@ footer p {
   padding: 0 1rem;
 }
 
-/* Tipografia de Títulos */
+/* Títulos com Lora */
 h1, h2, h3, .playfair {
   font-family: 'Lora', serif;
   color: var(--text-primary);
 }
 
-/* Tipografia de Texto */
+/* Textos com Montserrat */
 .inter, p, li, .categoria, .subheadline {
   font-family: 'Montserrat', sans-serif;
   color: var(--text-primary);
 }
 
-/* Linhas divisórias sutis */
-hr {
-  border: none;
-  border-top: 1px solid var(--text-secondary);
-  margin: 2rem 0;
-}
-
-/* =====================================================
-   Hero
-   ===================================================== */
+/* ----------------------------
+   Hero Section
+   ---------------------------- */
 .hero {
-  background: var(--bg-deep) url('hero-bg.jpg') center/cover no-repeat;
+  background: var(--bg-alt) url('hero-bg.jpg') center/cover no-repeat;
   padding: 6rem 1rem;
   text-align: center;
 }
-
 .hero h1 {
   font-size: 2.5rem;
   margin-bottom: 1rem;
 }
-
 .subheadline {
   font-size: 1.2rem;
   margin-bottom: 2rem;
-  color: var(--text-primary);
 }
 
-/* =====================================================
+/* ----------------------------
    Botão CTA
-   ===================================================== */
+   ---------------------------- */
 .cta-btn {
   display: inline-block;
   padding: 1rem 2rem;
-  background: var(--cta-accent);
-  color: #fff;
+  background: var(--cta-bg);
+  color: var(--text-primary);
   font-weight: 600;
   text-decoration: none;
   border-radius: 5px;
-  transition: transform .2s, box-shadow .2s;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
 }
 .cta-btn:hover {
+  background: var(--cta-hover);
   transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+  box-shadow: 0 4px 12px var(--shadow);
 }
 
-/* =====================================================
+/* ----------------------------
    Seções (Cards)
-   ===================================================== */
+   ---------------------------- */
 main > section {
   background: var(--bg-section);
   border-radius: 12px;
-  border: 1px solid rgba(255,255,255,0.2);
-  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+  box-shadow: 0 4px 12px var(--shadow);
   margin-top: 2rem;
   padding: 4rem 2rem;
 }
 
-/* Em cada seção, títulos em dourado discreto */
-.main h2.playfair {
+/* Parágrafo de Conexão */
+.conexao p {
+  font-size: 1.1rem;
+  color: var(--text-secondary);
+}
+
+/* Listas de Benefícios e Público */
+.beneficios ul,
+.publico ul {
+  list-style: none;
+  padding-left: 0;
+}
+.beneficios li::before {
+  content: '✅ ';
   color: var(--gold-light);
 }
-
-/* =====================================================
-   Benefícios & Listas
-   ===================================================== */
-.beneficios li::before { content: '✅ '; }
-.beneficios li,
-.publico li {
-  margin-bottom: .5rem;
-}
-
-/* Público em grid */
 .publico {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 2rem;
 }
 
-/* =====================================================
+/* ----------------------------
    Mockups / Categorias
-   ===================================================== */
+   ---------------------------- */
 .images-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit,minmax(180px,1fr));
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
   gap: 1.5rem;
   text-align: center;
 }
-
 .mockup-item img {
   width: 100%;
   border-radius: 8px;
   object-fit: cover;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-  transition: transform .3s;
+  box-shadow: 0 2px 8px var(--shadow);
+  transition: transform 0.3s ease;
 }
 .mockup-item img:hover {
   transform: scale(1.03);
 }
-
 .categoria {
-  margin-top: .5rem;
-  font-size: .95rem;
+  margin-top: 0.5rem;
+  font-size: 0.95rem;
   font-weight: 500;
   color: var(--text-secondary);
 }
 
-/* =====================================================
-   Oferta Section
-   ===================================================== */
+/* ----------------------------
+   Oferta
+   ---------------------------- */
 .oferta .price {
   font-size: 2.5rem;
   color: var(--text-primary);
@@ -172,38 +168,47 @@ main > section {
   background: var(--gold-dark);
 }
 
-/* =====================================================
-   Tech Stack (removido se não for mais usado)
-   ===================================================== */
-/* (você pode comentar ou remover este bloco se não precisar) */
-
-/* =====================================================
+/* ----------------------------
    Fade-in Animation
-   ===================================================== */
+   ---------------------------- */
 .fade-in {
   opacity: 0;
   transform: translateY(20px);
-  transition: opacity .8s ease-out, transform .8s ease-out;
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
 }
 .fade-in.visible {
   opacity: 1;
   transform: translateY(0);
 }
 
-/* =====================================================
+/* ----------------------------
    Footer
-   ===================================================== */
+   ---------------------------- */
 footer {
+  background: var(--bg-alt);
   padding: 2rem 1rem;
   text-align: center;
-  color: #fff;
+  color: var(--text-primary);
 }
-footer p + p { margin-top: 1rem; }
+footer p + p {
+  margin-top: 1rem;
+}
 
-/* =====================================================
+/* ----------------------------
    Responsividade
-   ===================================================== */
-@media (max-width:768px) {
-  .publico { grid-template-columns: 1fr; }
-  .hero h1 { font-size: 2rem; }
+   ---------------------------- */
+@media (max-width: 768px) {
+  .publico {
+    grid-template-columns: 1fr;
+  }
+  .hero h1 {
+    font-size: 2rem;
+  }
+}
+
+@media (max-width: 600px) {
+  /* Ajusta grid de mockups */
+  .images-grid {
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  }
 }
