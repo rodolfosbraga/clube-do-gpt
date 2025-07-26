@@ -1,45 +1,47 @@
 /* =====================================================
-   style.css — Tema 3: Preto Profundo + Branco + Dourado Elegante
+   style.css — Paleta Azul (imagem)
+   Fundo escuro, branco e azuis com detalhes vibrantes
    ===================================================== */
 
 /* ----------------------------
    Variáveis de Cores
    ---------------------------- */
 :root {
-  --bg-dark:        #101418;    /* Fundo preto profundo */
-  --bg-alt:         #181818;    /* Fundo alternativo (footer) */
-  --bg-section:     #ffffff;    /* Cartões e seções em branco total */
-  --text-primary:   #ffffff;    /* Texto principal em branco */
-  --text-secondary: #cccccc;    /* Texto secundário em cinza claro */
-  --gold-light:     #D1B272;    /* Dourado fosco */
-  --gold-dark:      #BFA980;    /* Dourado escuro */
-  --cta-bg:         var(--gold-light);
-  --cta-hover:      var(--gold-dark);
-  --shadow:         rgba(0,0,0,0.1); /* Sombra leve */
+  --color-header-bg:    #023E73;  /* header escuro */
+  --color-body-bg:      #D8E3F2;  /* fundo geral bem claro */
+  --color-section-bg:   #FFFFFF;  /* fundo dos cards/seções */
+  --color-footer-bg:    #0420BF;  /* footer vibrante */
+  --color-text:         #023E73;  /* texto principal */
+  --color-text-light:   #91B7D9;  /* texto secundário */
+  --color-accent:       #0420BF;  /* destaque principal */
+  --color-accent-light: #4973F2;  /* hover / subtítulo */
+  --btn-bg:             var(--color-accent);
+  --btn-hover:          var(--color-accent-light);
+  --shadow:             rgba(0, 0, 0, 0.1);
 }
 
 /* ----------------------------
-   Reset & Base Styles
+   Reset & Base
    ---------------------------- */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
-
 body {
   font-family: 'Montserrat', sans-serif;
-  background-color: var(--bg-dark);
-  color: var(--text-primary);
+  background-color: var(--color-body-bg);
+  color: var(--color-text);
   line-height: 1.6;
 }
 
 /* ----------------------------
-   Hero / Header
+   Header / Hero
    ---------------------------- */
 .hero {
   width: 100%;
-  height: 600px; /* ajustável: entre 500px e 700px */
+  height: 600px;             /* altura recomendada */
+  background-color: var(--color-header-bg);
   overflow: hidden;
 }
 .hero-img {
@@ -51,7 +53,7 @@ body {
 }
 
 /* ----------------------------
-   Centralização de Containers
+   Centralização
    ---------------------------- */
 main > section,
 footer p {
@@ -63,53 +65,67 @@ footer p {
 /* ----------------------------
    Tipografia
    ---------------------------- */
-/* Títulos */
+/* Cabeçalhos */
 h1, h2, h3, .playfair {
   font-family: 'Lora', serif;
-  color: var(--text-primary);
+  color: var(--color-text);
 }
-
-/* Corpo do texto */
+/* Textos do corpo */
 .inter, p, li, .categoria {
   font-family: 'Montserrat', sans-serif;
-  color: var(--text-primary);
+  color: var(--color-text);
+}
+/* Subtítulos ou detalhes */
+.subheadline {
+  color: var(--color-text-light);
 }
 
 /* ----------------------------
-   Cards / Seções
+   Seções / Cards
    ---------------------------- */
 main > section {
-  background: var(--bg-section);
+  background: var(--color-section-bg);
   border-radius: 12px;
   box-shadow: 0 4px 12px var(--shadow);
   margin-top: 2rem;
-  padding: 4rem 2rem;
+  padding: 3rem 2rem;
 }
 
 /* Conexão Emocional */
 .conexao p {
   font-size: 1.1rem;
-  color: var(--text-secondary);
+  color: var(--color-text-light);
 }
 
 /* Benefícios */
-.beneficios ul, .publico ul {
+.beneficios ul {
   list-style: none;
   padding-left: 0;
 }
+.beneficios li {
+  margin-bottom: 0.5rem;
+}
 .beneficios li::before {
   content: '✅ ';
-  color: var(--gold-light);
+  color: var(--color-accent);
 }
 
-/* Para quem é / Não é */
+/* Público */
 .publico {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 2rem;
 }
+.publico ul {
+  list-style: none;
+  padding-left: 0;
+}
 .publico li {
   margin-bottom: 0.5rem;
+}
+.publico li::before {
+  content: '✔️ ';
+  color: var(--color-accent);
 }
 
 /* ----------------------------
@@ -128,6 +144,7 @@ main > section {
 }
 .mockup-item img {
   width: 100%;
+  max-width: 220px;
   border-radius: 8px;
   object-fit: cover;
   box-shadow: 0 2px 8px var(--shadow);
@@ -140,7 +157,7 @@ main > section {
   margin-top: 0.5rem;
   font-size: 0.95rem;
   font-weight: 500;
-  color: var(--text-secondary);
+  color: var(--color-text-light);
 }
 
 /* ----------------------------
@@ -148,11 +165,12 @@ main > section {
    ---------------------------- */
 .oferta .price {
   font-size: 2.5rem;
-  color: var(--text-primary);
+  color: var(--color-text);
+  margin: 1rem 0;
 }
 .oferta .price span {
   font-size: 1rem;
-  color: var(--text-secondary);
+  color: var(--color-text-light);
 }
 
 /* ----------------------------
@@ -161,15 +179,15 @@ main > section {
 .cta-btn {
   display: inline-block;
   padding: 1rem 2rem;
-  background: var(--cta-bg);
-  color: var(--text-primary);
+  background: var(--btn-bg);
+  color: #fff;
   font-weight: 600;
   text-decoration: none;
   border-radius: 5px;
   transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
 }
 .cta-btn:hover {
-  background: var(--cta-hover);
+  background: var(--btn-hover);
   transform: translateY(-2px);
   box-shadow: 0 4px 12px var(--shadow);
 }
@@ -191,10 +209,10 @@ main > section {
    Footer
    ---------------------------- */
 footer {
-  background: var(--bg-alt);
+  background: var(--color-footer-bg);
   padding: 2rem 1rem;
   text-align: center;
-  color: var(--text-primary);
+  color: #fff;
 }
 footer p + p {
   margin-top: 1rem;
@@ -207,11 +225,11 @@ footer p + p {
   .publico {
     grid-template-columns: 1fr;
   }
-  h1 {
-    font-size: 2rem;
-  }
   .hero {
     height: 400px;
+  }
+  h1 {
+    font-size: 2rem;
   }
 }
 
@@ -219,4 +237,12 @@ footer p + p {
   .images-grid {
     grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
   }
+}
+
+/* ----------------------------
+   Classe para destacar texto
+   ---------------------------- */
+.highlight {
+  color: var(--color-accent);
+  font-weight: 700;
 }
