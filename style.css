@@ -1,3 +1,19 @@
+/* =====================================================
+   Variables
+   ===================================================== */
+:root {
+  --bg-dark: #333333;
+  --bg-section: #ffffff;
+  --bg-card: #f0f0f0;
+  --text-primary: #222222;
+  --text-secondary: #444444;
+  --gold: #e3a010;
+  --gold-dark: #c18a0c;
+}
+
+/* =====================================================
+   Reset & Base Styles
+   ===================================================== */
 * {
   margin: 0;
   padding: 0;
@@ -5,129 +21,239 @@
 }
 
 body {
-  font-family: 'Inter', sans-serif;
-  color: #222222;
-  background: #f0f0f0; /* 👈 Isso já é um cinza bem claro */
+  font-family: 'Montserrat', sans-serif;
+  background-color: var(--bg-dark);
+  color: var(--text-primary);
   line-height: 1.6;
 }
 
-.playfair {
-  font-family: 'Playfair Display', serif;
-}
-.inter {
-  font-family: 'Inter', sans-serif;
+/* Centralização de containers principais */
+.hero-content,
+main > section,
+footer p {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 0 1rem;
 }
 
-.hero {
-  background: #333;
-  color: white;
-  text-align: center;
-  padding: 6rem 2rem;
+/* Tipografia de Cabeçalhos */
+h1, h2, h3, .playfair {
+  font-family: 'Lora', serif;
 }
-.hero-content h1 {
+
+/* Tipografia do Conteúdo */
+.inter, p, li, .categoria, .subheadline {
+  font-family: 'Montserrat', sans-serif;
+}
+
+/* =====================================================
+   Hero Section
+   ===================================================== */
+.hero {
+  background: var(--bg-dark) url('hero-bg.jpg') center/cover no-repeat;
+  padding: 6rem 1rem;
+  text-align: center;
+}
+
+.hero h1 {
+  color: #fff;
   font-size: 2.5rem;
   margin-bottom: 1rem;
 }
+
 .subheadline {
+  color: #fff;
   font-size: 1.2rem;
   margin-bottom: 2rem;
 }
+
+/* =====================================================
+   Call To Action Button
+   ===================================================== */
 .cta-btn {
   display: inline-block;
   padding: 1rem 2rem;
-  background: #e3a010;
-  color: white;
-  font-weight: bold;
+  background: var(--gold);
+  color: #fff;
+  font-weight: 600;
   text-decoration: none;
   border-radius: 5px;
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
 }
+
 .cta-btn:hover {
+  background: var(--gold-dark);
   transform: translateY(-2px);
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
 }
 
-section {
+/* =====================================================
+   Sections (Conexão, Benefícios, Público, Mockups, Oferta)
+   ===================================================== */
+main > section {
+  background: var(--bg-section);
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  box-shadow: 0 4px 12px rgba(255, 255, 255, 0.08);
+  margin-top: 2rem;
   padding: 4rem 2rem;
-  max-width: 800px;
-  margin: auto;
-  background: white;
-  border-radius: 8px;
-  margin-bottom: 1rem;
 }
 
+/* Conexão Emocional */
+.conexao p {
+  font-size: 1.1rem;
+  color: var(--text-primary);
+}
+
+/* Benefícios e listas gerais */
 .beneficios ul,
 .publico ul {
   list-style: none;
   padding-left: 0;
 }
+
 .beneficios li::before {
   content: '✅ ';
 }
+
 .publico {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 2rem;
 }
-/* Grid de mockups */
+
+/* =====================================================
+   Mockups / Categorias
+   ===================================================== */
 .images-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
   gap: 1.5rem;
   text-align: center;
 }
+
+.mockup-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
 .mockup-item img {
   width: 100%;
-  border-radius: 6px;
+  max-width: 220px;
+  border-radius: 8px;
   object-fit: cover;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
 }
-.mockup-item .categoria {
+
+.mockup-item img:hover {
+  transform: scale(1.03);
+}
+
+.categoria {
   margin-top: 0.5rem;
   font-size: 0.95rem;
   font-weight: 500;
-  color: #5c6f85;
+  color: var(--text-secondary);
 }
 
-.oferta {
-  text-align: center;
-}
-.price {
+/* =====================================================
+   Oferta Section
+   ===================================================== */
+.oferta .price {
   font-size: 2.5rem;
   margin: 1rem 0;
+  color: var(--text-primary);
 }
-.price span {
+
+.oferta .price span {
   font-size: 1rem;
-  color: #777;
+  color: var(--text-secondary);
 }
 
-footer {
+/* =====================================================
+   Tech Stack
+   ===================================================== */
+.tech-stack .descricao {
   text-align: center;
-  padding: 2rem;
-  background: #5c6f85;
-  color: #fff;
-}
-footer p + p {
-  margin-top: 1rem;
+  color: var(--text-secondary);
+  margin-bottom: 2rem;
 }
 
-/* Fade-in animation */
+.tech-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  gap: 1.5rem;
+}
+
+.tech-item {
+  background: var(--bg-card);
+  border-radius: 8px;
+  padding: 1rem;
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.tech-item:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+}
+
+.tech-item img {
+  width: 40px;
+  height: 40px;
+  margin-bottom: 0.5rem;
+}
+
+.tech-item p {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+/* =====================================================
+   Fade-in Animation
+   ===================================================== */
 .fade-in {
   opacity: 0;
   transform: translateY(20px);
   transition: opacity 0.8s ease-out, transform 0.8s ease-out;
 }
+
 .fade-in.visible {
   opacity: 1;
   transform: translateY(0);
 }
 
-/* Responsive */
+/* =====================================================
+   Footer
+   ===================================================== */
+footer {
+  padding: 2rem 1rem;
+  text-align: center;
+  color: #fff;
+}
+
+footer p {
+  margin: 0.5rem auto;
+}
+
+/* =====================================================
+   Responsividade
+   ===================================================== */
 @media (max-width: 768px) {
-  .hero-content h1 {
-    font-size: 2rem;
-  }
   .publico {
     grid-template-columns: 1fr;
+  }
+
+  .hero h1 {
+    font-size: 2rem;
+  }
+}
+
+@media (max-width: 600px) {
+  .tech-grid {
+    grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
   }
 }
