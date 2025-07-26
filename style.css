@@ -1,31 +1,30 @@
 /* =====================================================
-   style.css — Paleta Azul Adaptada + Fonte Cinzel
+   style.css — Atualizado para novas seções
    ===================================================== */
 
 /* ----------------------------
-   Variáveis de Cores
+   Variáveis de Cores (Paleta Azul)
    ---------------------------- */
 :root {
-  --color-header-bg:    #023E73;   /* header escuro */
-  --color-body-bg:      #D8E3F2;   /* fundo geral claro */
-  --color-section-bg:   #FFFFFF;   /* cards/seções brancos */
-  --color-footer-bg:    #0420BF;   /* footer vibrante */
-  --color-text-primary: #023E73;   /* texto principal escuro */
-  --color-text-alt:     #91B7D9;   /* texto secundário mais claro */
-  --color-accent:       #0420BF;   /* destaque/ícones */
-  --color-accent-hover: #4973F2;   /* hover nos botões */
-  --shadow-light:       rgba(0,0,0,0.1);
+  --color-header-bg:     #023E73;
+  --color-body-bg:       #D8E3F2;
+  --color-section-bg:    #FFFFFF;
+  --color-footer-bg:     #0420BF;
+  --color-text-primary:  #023E73;
+  --color-text-secondary:#91B7D9;
+  --color-accent:        #0420BF;
+  --color-accent-hover:  #4973F2;
+  --shadow-light:        rgba(0,0,0,0.1);
 }
 
 /* ----------------------------
-   Reset & Base Styles
+   Reset & Base
    ---------------------------- */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
-
 body {
   background-color: var(--color-body-bg);
   color: var(--color-text-primary);
@@ -34,11 +33,11 @@ body {
 }
 
 /* ----------------------------
-   Header / Hero
+   Hero / Header
    ---------------------------- */
 header.hero {
   width: 100%;
-  height: 600px;             /* Entre 500px e 700px, conforme arte */
+  height: 600px;
   background-color: var(--color-header-bg);
   overflow: hidden;
 }
@@ -51,19 +50,18 @@ header.hero img.hero-img {
 }
 
 /* ----------------------------
-   Centralização
+   Centralização de Containers
    ---------------------------- */
 main > section,
-footer p {
+footer {
   max-width: 900px;
   margin: 2rem auto;
   padding: 0 1rem;
 }
 
 /* ----------------------------
-   Tipografia
+   Tipografia de Títulos
    ---------------------------- */
-/* Títulos (<h2> aqui) centralizados e em negrito */
 section h2 {
   text-align: center;
   font-weight: 700;
@@ -71,27 +69,10 @@ section h2 {
   margin-bottom: 1rem;
 }
 
-/* Parágrafos e listas */
-section p,
-section ul li {
-  font-family: 'Cinzel', serif;
-  color: var(--color-text-primary);
-}
-
-/* Subtítulos/detalhes */
-.conexao p,
-section .descricao {
-  color: var(--color-text-alt);
-}
-
 /* ----------------------------
-   Seções / Cards
+   Seções / Cartões (todos)
    ---------------------------- */
-section.conexao,
-section.beneficios,
-section.publico,
-section.mockups,
-section.oferta {
+main > section {
   background: var(--color-section-bg);
   border-radius: 12px;
   box-shadow: 0 4px 12px var(--shadow-light);
@@ -99,14 +80,16 @@ section.oferta {
 }
 
 /* ----------------------------
-   Conexão Emocional
+   1. Conexão Emocional
    ---------------------------- */
 section.conexao p {
   font-size: 1.1rem;
+  color: var(--color-text-secondary);
+  text-align: center;
 }
 
 /* ----------------------------
-   Benefícios
+   2. Benefícios
    ---------------------------- */
 section.beneficios ul {
   list-style: none;
@@ -121,7 +104,7 @@ section.beneficios li {
 }
 
 /* ----------------------------
-   Para quem é / Não é para quem
+   3. Para quem é / Não é
    ---------------------------- */
 section.publico {
   display: flex;
@@ -149,8 +132,13 @@ section.publico > div:last-child li::before {
 }
 
 /* ----------------------------
-   Mockups / Categorias
+   4. Mockups / Categorias
    ---------------------------- */
+section.mockups .descricao {
+  color: var(--color-text-secondary);
+  text-align: center;
+  margin-bottom: 2rem;
+}
 section.mockups .images-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit,minmax(180px,1fr));
@@ -170,38 +158,104 @@ section.mockups .mockup-item img:hover {
 }
 section.mockups .mockup-item p {
   margin-top: 0.5rem;
+  color: var(--color-text-secondary);
   font-size: 0.95rem;
-  color: var(--color-text-alt);
 }
 
 /* ----------------------------
-   Oferta
+   5. Oferta
    ---------------------------- */
-section.oferta .price {
-  text-align: center;
+section.oferta#oferta .price {
   font-size: 2.5rem;
   color: var(--color-text-primary);
+  text-align: center;
   margin-bottom: 1rem;
 }
-section.oferta .price span {
+section.oferta#oferta .price span {
   font-size: 1rem;
-  color: var(--color-text-alt);
+  color: var(--color-text-secondary);
 }
-section.oferta p {
+section.oferta#oferta p {
   text-align: center;
   margin: 0.5rem 0;
 }
+.cta-container {
+  text-align: center;
+  margin-top: 1.5rem;
+}
 
 /* ----------------------------
-   Botão CTA
+   6. Feito por quem sabe
+   ---------------------------- */
+section.oferta.fade-in:not(#oferta) h2,
+section.oferta.fade-in:not(#oferta) p {
+  text-align: center;
+  color: var(--color-text-secondary);
+  margin-top: 0.5rem;
+}
+
+/* ----------------------------
+   7. FAQ (Accordion)
+   ---------------------------- */
+section.faq h2 {
+  margin-bottom: 1.5rem;
+}
+.faq-columns {
+  display: grid;
+  grid-template-columns: repeat(auto-fit,minmax(300px,1fr));
+  gap: 2rem;
+}
+.faq-column details {
+  margin-bottom: 1rem;
+}
+.faq-column summary {
+  font-weight: 600;
+  cursor: pointer;
+  color: var(--color-text-primary);
+}
+.faq-column summary::-webkit-details-marker {
+  display: none;
+}
+.faq-column summary::before {
+  content: '▶ ';
+  color: var(--color-accent);
+  transition: transform 0.2s ease;
+}
+.faq-column details[open] summary::before {
+  transform: rotate(90deg);
+}
+.faq-column details p {
+  margin: 0.5rem 0 0 1.5rem;
+  color: var(--color-text-secondary);
+}
+
+/* ----------------------------
+   8. Depoimentos
+   ---------------------------- */
+section.testimonials .testimonial {
+  margin-bottom: 2rem;
+  text-align: center;
+}
+section.testimonials blockquote {
+  font-style: italic;
+  color: var(--color-text-secondary);
+  margin-bottom: 0.5rem;
+}
+section.testimonials p {
+  font-weight: 600;
+  color: var(--color-text-primary);
+}
+
+/* ----------------------------
+   Botões CTA
    ---------------------------- */
 .cta-btn {
   display: inline-block;
   background: var(--color-accent);
   color: #fff;
   padding: 1rem 2rem;
-  text-decoration: none;
   font-weight: 600;
+  text-decoration: none;
   border-radius: 5px;
   transition: background 0.2s, transform 0.2s, box-shadow 0.2s;
 }
@@ -231,7 +285,7 @@ footer {
   background: var(--color-footer-bg);
   padding: 2rem 1rem;
   text-align: center;
-  color: var(--color-body-bg); /* texto mais claro */
+  color: var(--color-body-bg);
 }
 footer p + p {
   margin-top: 1rem;
@@ -243,9 +297,9 @@ footer p + p {
 @media (max-width: 768px) {
   header.hero { height: 400px; }
   section.publico { flex-direction: column; }
+  blockquote { font-size: 0.95rem; }
 }
 @media (max-width: 600px) {
-  section.mockups .images-grid {
-    grid-template-columns: repeat(auto-fit,minmax(140px,1fr));
-  }
+  .images-grid,
+  .faq-columns { grid-template-columns: repeat(auto-fit,minmax(140px,1fr)); }
 }
