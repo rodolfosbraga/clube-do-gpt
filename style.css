@@ -100,7 +100,7 @@ section.beneficios ul {
 section.beneficios li {
   margin-bottom: 0.5rem;
 }
-section.beneficios li::before {
+/*section.beneficios li::before {
   content: '✅ ';
   color: var(--color-accent);
 }
@@ -124,7 +124,7 @@ section.publico ul {
 section.publico li {
   margin-bottom: 0.5rem;
 }
-section.publico > div:first-child li::before {
+/*section.publico > div:first-child li::before {
   content: '✔️ ';
   color: var(--color-accent);
 }
