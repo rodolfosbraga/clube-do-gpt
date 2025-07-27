@@ -2,14 +2,17 @@
 
 document.addEventListener('DOMContentLoaded', () => {
   // 1. Scroll-reveal com Intersection Observer
-  const revealObserver = new IntersectionObserver((entries, obs) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('visible');
-        obs.unobserve(entry.target);
-      }
-    });
-  }, { threshold: 0.2 });
+const revealObserver = new IntersectionObserver((entries, obs) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+      obs.unobserve(entry.target);
+    }
+  });
+}, {
+  threshold: 0,           // dispara mesmo com 1px visível
+  rootMargin: '0px 0px -10% 0px'  // “puxa” o disparo 10% antes de sair da viewport
+});
 
   document.querySelectorAll('.fade-in').forEach(el => revealObserver.observe(el));
 
