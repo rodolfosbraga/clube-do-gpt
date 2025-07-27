@@ -112,6 +112,25 @@ header.hero img.hero-img {
     font-size: 1rem;
   }
 }
+/* ================================
+   Centraliza títulos e CTA fora do header
+   ================================ */
+
+/* Garante que os títulos fiquem centralizados e com margem adequada */
+.main-title,
+.sub-title {
+  text-align: center;
+  max-width: 900px;
+  margin: 2rem auto 1rem;
+}
+
+/* Força o CTA principal a ser um bloco centralizado */
+.cta-btn {
+  display: block;
+  max-width: 280px;       /* opcional: limita a largura do botão */
+  margin: 1.5rem auto 2rem;
+  text-align: center;     /* garante o texto interno centralizado */
+}
 /* ----------------------------
    Centralização de Containers
    ---------------------------- */
