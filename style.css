@@ -50,7 +50,86 @@ header.hero img.hero-img {
   object-position: center;
   display: block;
 }
+/* 2. Main Title */
+.main-title {
+  position: absolute;
+  top: 30vh;                 /* desce 30% da altura da viewport */
+  left: 50%;                 
+  transform: translateX(-50%);
+  margin: 0;
+  font-size: 3rem;           /* ajuste se quiser maior/menor */
+  font-weight: 700;
+  color: #ffffff;            /* branco puro sobre o fundo escuro */
+  text-align: center;
+  z-index: 10;               /* acima de tudo */
+  line-height: 1.2;
+}
 
+/* 3. Sub Title */
+.sub-title {
+  position: absolute;
+  top: 40vh;                 /* um pouco abaixo do main-title */
+  left: 50%;
+  transform: translateX(-50%);
+  margin: 0;
+  font-size: 1.5rem;
+  font-weight: 400;
+  color: #ffffff;
+  text-align: center;
+  z-index: 10;
+}
+
+/* 4. CTA flutuante */
+.cta-btn {
+  position: absolute;
+  top: 50vh;                 /* logo abaixo do sub-title */
+  left: 50%;
+  transform: translateX(-50%);
+  display: inline-block;
+  padding: 1rem 2rem;
+  background: var(--color-accent);
+  color: #fff;
+  font-weight: 600;
+  border-radius: 5px;
+  text-decoration: none;
+  transition: background 0.2s, transform 0.2s, box-shadow 0.2s;
+  z-index: 10;
+}
+.cta-btn:hover {
+  background: var(--color-accent-hover);
+  transform: translate(-50%, -2px);
+  box-shadow: 0 4px 12px var(--shadow-light);
+}
+
+/* 5. Ajustes responsivos */
+@media (max-width: 768px) {
+  .main-title {
+    font-size: 2.2rem;
+    top: 25vh;
+  }
+  .sub-title {
+    font-size: 1.2rem;
+    top: 34vh;
+  }
+  .cta-btn {
+    top: 42vh;
+    padding: 0.75rem 1.5rem;
+  }
+}
+@media (max-width: 480px) {
+  .main-title {
+    font-size: 1.8rem;
+    top: 22vh;
+  }
+  .sub-title {
+    font-size: 1rem;
+    top: 30vh;
+  }
+  .cta-btn {
+    top: 38vh;
+    padding: 0.6rem 1.2rem;
+  }
+}
 /* ----------------------------
    Centralização de Containers
    ---------------------------- */
