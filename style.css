@@ -62,31 +62,25 @@ header.hero img.hero-img {
 }
 
 /* ================================
-   Títulos e CTA dentro do header
+   Títulos dentro do header
+   (removido .cta-btn deste bloco e ajustada a cor)
    ================================ */
 .main-title,
-.sub-title,
-.cta-btn {
-  position: relative;        /* sai do absolute anterior */
-  transform: none;           /* remove qualquer translate */
-  left: auto;
-  top: auto;
+.sub-title {
+  position: relative;
+  transform: none;
   z-index: 1;                /* acima da imagem */
 }
 
-/* Espaçamento entre eles */
 .main-title {
   margin-bottom: 0.5rem;
   font-size: 3rem;
-  color: #fff;
+  color: var(--color-text-primary);  /* agora usa o azul petróleo escuro */
 }
 .sub-title {
   margin-bottom: 1.5rem;
   font-size: 1.5rem;
-  color: #fff;
-}
-.cta-btn {
-  margin-bottom: 0;
+  color: var(--color-text-primary);  /* idem */
 }
 
 /* ================================
@@ -94,8 +88,8 @@ header.hero img.hero-img {
    ================================ */
 @media (max-width: 768px) {
   header.hero {
-    height: auto;             /* permite crescer com o texto */
-    padding: 4rem 1rem;       /* mais espaço em cima/baixo */
+    height: auto;             
+    padding: 4rem 1rem;       
   }
   .main-title {
     font-size: 2.2rem;
@@ -112,11 +106,11 @@ header.hero img.hero-img {
     font-size: 1rem;
   }
 }
+
 /* ================================
    Centraliza títulos e CTA fora do header
    ================================ */
-
-/* Garante que os títulos fiquem centralizados e com margem adequada */
+/* Centraliza H1 e H2 após o header */
 .main-title,
 .sub-title {
   text-align: center;
@@ -124,12 +118,14 @@ header.hero img.hero-img {
   margin: 2rem auto 1rem;
 }
 
-/* Força o CTA principal a ser um bloco centralizado */
-.cta-btn {
-  display: block;
-  max-width: 280px;       /* opcional: limita a largura do botão */
-  margin: 1.5rem auto 2rem;
-  text-align: center;     /* garante o texto interno centralizado */
+/* Centraliza apenas o botão que vem logo depois do subtítulo */
+.sub-title + .cta-btn {
+  display: block;               /* vira bloco para poder centralizar */
+  max-width: 280px;             /* opcional: largura fixa */
+  margin: 1.5rem auto 2rem;     /* centraliza e separa do restante */
+  text-align: center;           /* texto interno alinhado */
+  position: static !important;  
+  transform: none !important;   
 }
 /* ----------------------------
    Centralização de Containers
