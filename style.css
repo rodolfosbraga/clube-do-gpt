@@ -34,100 +34,82 @@ body {
   line-height: 1.6;
 }
 
-/* ----------------------------
-   Hero / Header
-   ---------------------------- */
+/* ================================
+   Header.hero como Flex Container
+   ================================ */
 header.hero {
-  width: 100%;
-  height: 600px;
-  background-color: var(--color-header-bg);
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;   /* alinha verticalmente */
+  align-items: center;       /* alinha horizontalmente */
+  text-align: center;
+  padding: 0 1rem;           /* espaçamento lateral em mobile */
+  height: 600px;             /* ou ajuste conforme arte */
   overflow: hidden;
 }
+
+/* Hero background (imagem) */
 header.hero img.hero-img {
+  position: absolute;
+  top: 0;
+  left: 0;
   width: 100%;
   height: 100%;
   object-fit: cover;
   object-position: center;
-  display: block;
-}
-/* 2. Main Title */
-.main-title {
-  position: absolute;
-  top: 30vh;                 /* desce 30% da altura da viewport */
-  left: 50%;                 
-  transform: translateX(-50%);
-  margin: 0;
-  font-size: 3rem;           /* ajuste se quiser maior/menor */
-  font-weight: 700;
-  color: #ffffff;            /* branco puro sobre o fundo escuro */
-  text-align: center;
-  z-index: 10;               /* acima de tudo */
-  line-height: 1.2;
+  z-index: 0;
 }
 
-/* 3. Sub Title */
-.sub-title {
-  position: absolute;
-  top: 40vh;                 /* um pouco abaixo do main-title */
-  left: 50%;
-  transform: translateX(-50%);
-  margin: 0;
-  font-size: 1.5rem;
-  font-weight: 400;
-  color: #ffffff;
-  text-align: center;
-  z-index: 10;
-}
-
-/* 4. CTA flutuante */
+/* ================================
+   Títulos e CTA dentro do header
+   ================================ */
+.main-title,
+.sub-title,
 .cta-btn {
-  position: absolute;
-  top: 50vh;                 /* logo abaixo do sub-title */
-  left: 50%;
-  transform: translateX(-50%);
-  display: inline-block;
-  padding: 1rem 2rem;
-  background: var(--color-accent);
-  color: #fff;
-  font-weight: 600;
-  border-radius: 5px;
-  text-decoration: none;
-  transition: background 0.2s, transform 0.2s, box-shadow 0.2s;
-  z-index: 10;
-}
-.cta-btn:hover {
-  background: var(--color-accent-hover);
-  transform: translate(-50%, -2px);
-  box-shadow: 0 4px 12px var(--shadow-light);
+  position: relative;        /* sai do absolute anterior */
+  transform: none;           /* remove qualquer translate */
+  left: auto;
+  top: auto;
+  z-index: 1;                /* acima da imagem */
 }
 
-/* 5. Ajustes responsivos */
+/* Espaçamento entre eles */
+.main-title {
+  margin-bottom: 0.5rem;
+  font-size: 3rem;
+  color: #fff;
+}
+.sub-title {
+  margin-bottom: 1.5rem;
+  font-size: 1.5rem;
+  color: #fff;
+}
+.cta-btn {
+  margin-bottom: 0;
+}
+
+/* ================================
+   Ajustes responsivos
+   ================================ */
 @media (max-width: 768px) {
+  header.hero {
+    height: auto;             /* permite crescer com o texto */
+    padding: 4rem 1rem;       /* mais espaço em cima/baixo */
+  }
   .main-title {
     font-size: 2.2rem;
-    top: 25vh;
   }
   .sub-title {
     font-size: 1.2rem;
-    top: 34vh;
-  }
-  .cta-btn {
-    top: 42vh;
-    padding: 0.75rem 1.5rem;
   }
 }
 @media (max-width: 480px) {
   .main-title {
     font-size: 1.8rem;
-    top: 22vh;
   }
   .sub-title {
     font-size: 1rem;
-    top: 30vh;
-  }
-  .cta-btn {
-    top: 38vh;
-    padding: 0.6rem 1.2rem;
   }
 }
 /* ----------------------------
