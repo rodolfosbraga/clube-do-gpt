@@ -245,6 +245,13 @@ section.mockups .mockup-item p {
   color: var(--color-text-primary);
   font-size: 0.95rem;
 }
+@media (max-width: 768px) {
+  /* força todas as seções com fade-in a aparecerem no mobile */
+  .fade-in {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+}
 
 /* =====================================================
    5. Nossos Planos (seção #oferta em três colunas)
