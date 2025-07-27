@@ -63,19 +63,21 @@ header.hero img.hero-img {
 
 /* ================================
    Títulos dentro do header
-   (removido .cta-btn deste bloco e ajustada a cor)
+   (removido .cta-btn e texto em azul-petróleo)
    ================================ */
 .main-title,
 .sub-title {
-  position: relative;
-  transform: none;
+  position: relative;        /* sai do absolute anterior */
+  transform: none;           /* remove qualquer translate */
+  left: auto;
+  top: auto;
   z-index: 1;                /* acima da imagem */
 }
 
 .main-title {
   margin-bottom: 0.5rem;
   font-size: 3rem;
-  color: var(--color-text-primary);  /* agora usa o azul petróleo escuro */
+  color: var(--color-text-primary);  /* agora azul-petróleo escuro */
 }
 .sub-title {
   margin-bottom: 1.5rem;
@@ -110,7 +112,7 @@ header.hero img.hero-img {
 /* ================================
    Centraliza títulos e CTA fora do header
    ================================ */
-/* Centraliza H1 e H2 após o header */
+/* H1 e H2 após o header */
 .main-title,
 .sub-title {
   text-align: center;
@@ -118,15 +120,19 @@ header.hero img.hero-img {
   margin: 2rem auto 1rem;
 }
 
-/* Centraliza apenas o botão que vem logo depois do subtítulo */
+/* Apenas o botão que vem imediatamente após o subtítulo */
 .sub-title + .cta-btn {
   display: block;               /* vira bloco para poder centralizar */
-  max-width: 280px;             /* opcional: largura fixa */
-  margin: 1.5rem auto 2rem;     /* centraliza e separa do restante */
-  text-align: center;           /* texto interno alinhado */
+  max-width: 280px;             /* limita a largura, opcional */
+  margin: 1.5rem auto 2rem;     /* centraliza e dá espaço embaixo */
+  text-align: center;           /* centraliza o texto interno */
   position: static !important;  
   transform: none !important;   
+  background: var(--color-accent);
+  color: #fff;
+  font-weight: 600;
 }
+
 /* ----------------------------
    Centralização de Containers
    ---------------------------- */
