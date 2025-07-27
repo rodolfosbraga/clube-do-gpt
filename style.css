@@ -164,26 +164,116 @@ section.mockups .mockup-item p {
   font-size: 0.95rem;
 }
 
-/* ----------------------------
-   5. Oferta
-   ---------------------------- */
-section.oferta#oferta .price {
-  font-size: 2.5rem;
-  color: var(--color-text-primary);
+/* =====================================================
+   5. Nossos Planos (seção #oferta em três colunas)
+   ===================================================== */
+
+/* Container da seção */
+section#oferta {
+  background: var(--color-section-bg);
+  border-radius: 12px;
+  box-shadow: 0 4px 12px var(--shadow-light);
+  padding: 3rem 2rem;
+  margin-top: 2rem;
+}
+
+/* Título centralizado */
+section#oferta > h2 {
   text-align: center;
+  font-weight: 700;
+  color: var(--color-text-primary);
+  margin-bottom: 2rem;
+}
+
+/* Grid de planos */
+.plans-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5rem;
+}
+
+/* Cada cartão de plano */
+.plan-item {
+  background: var(--color-section-bg);
+  border-radius: 8px;
+  box-shadow: 0 2px 8px var(--shadow-light);
+  padding: 2rem 1.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+/* Título do plano */
+.plan-item h3 {
+  font-size: 1.5rem;
+  margin-bottom: 0.5rem;
+  color: var(--color-text-primary);
+}
+
+/* Preço do plano */
+.plan-price {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-bottom: 0.25rem;
+  color: var(--color-text-primary);
+}
+.plan-price span {
+  font-size: 1rem;
+  font-weight: 400;
+  color: var(--color-text-secondary);
+}
+
+/* Texto de desconto (plano anual) */
+.plan-discount {
+  font-size: 0.9rem;
+  color: var(--color-accent);
   margin-bottom: 1rem;
 }
-section.oferta#oferta .price span {
-  font-size: 1rem;
+
+/* Badge “Melhor Valor” (plano vitalício) */
+.plan-badge {
+  font-size: 0.85rem;
+  background: var(--color-accent);
+  color: #fff;
+  padding: 0.25rem 0.75rem;
+  border-radius: 20px;
+  margin-bottom: 1rem;
+}
+
+/* Lista de recursos */
+.plan-item ul {
+  list-style: none;
+  padding: 0;
+  margin: 1rem 0 2rem;
+  width: 100%;
+  text-align: left;
+}
+.plan-item ul li {
+  position: relative;
+  padding-left: 1.2rem;
+  margin-bottom: 0.5rem;
   color: var(--color-text-primary);
 }
-section.oferta#oferta p {
-  text-align: center;
-  margin: 0.5rem 0;
+.plan-item ul li::before {
+  content: '•';
+  position: absolute;
+  left: 0;
+  color: var(--color-accent);
+  font-size: 1.1rem;
+  line-height: 1;
 }
-.cta-container {
-  text-align: center;
-  margin-top: 1.5rem;
+
+/* CTA dentro do cartão */
+.plan-item .cta-btn {
+  margin-top: auto;
+}
+
+/* Responsividade: uma coluna em telas menores */
+@media (max-width: 768px) {
+  .plans-grid {
+    grid-template-columns: 1fr;
+  }
 }
 
 /* ----------------------------
