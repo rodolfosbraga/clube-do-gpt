@@ -1,31 +1,51 @@
-// script.js
-
+// script.js — versão corrigida
 document.addEventListener('DOMContentLoaded', () => {
-  // 1. Scroll-reveal com Intersection Observer
-const revealObserver = new IntersectionObserver((entries, obs) => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      entry.target.classList.add('visible');
-      obs.unobserve(entry.target);
-    }
-  });
-}, {
-  threshold: 0,           // dispara mesmo com 1px visível
-  rootMargin: '0px 0px -10% 0px'  // “puxa” o disparo 10% antes de sair da viewport
-});
+  /* ========= 1) Fade-in com IntersectionObserver ========= */
+  const fadeEls = document.querySelectorAll('.fade-in');
 
-  document.querySelectorAll('.fade-in').forEach(el => revealObserver.observe(el));
+  if ('IntersectionObserver' in window) {
+    const revealObserver = new IntersectionObserver((entries, obs) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          obs.unobserve(entry.target);
+        }
+      });
+    }, {
+      threshold: 0,                 // dispara com 1px visível
+      rootMargin: '0px 0px -10% 0px'
+    });
 
-  // 2. Smooth scroll para a seção de Oferta ao clicar nos CTAs
-  const ofertaSection = document.querySelector('#oferta');
-  document.querySelectorAll('.cta-btn').forEach(btn => {
-    btn.addEventListener('click', e => {
-      e.preventDefault();
-      if (ofertaSection) {
-        ofertaSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
-        // opcional: atualiza a âncora na URL sem recarregar
-        history.pushState(null, '', '#oferta');
+    fadeEls.forEach(el => revealObserver.observe(el));
+  } else {
+    // Fallback p/ navegadores antigos
+    fadeEls.forEach(el => el.classList.add('visible'));
+  }
+
+  /* ========= 2) Smooth scroll SOMENTE para botões marcados =========
+     Ex.: <a href="#oferta" class="cta-btn" data-scroll="oferta">...</a>
+  */
+  const scrollBtns = document.querySelectorAll('.cta-btn[data-scroll]');
+  scrollBtns.forEach(btn => {
+    btn.addEventListener('click', (e) => {
+      const id = btn.getAttribute('data-scroll');   // "oferta"
+      const target = document.getElementById(id);
+      if (target) {
+        e.preventDefault();
+        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        history.pushState(null, '', `#${id}`);
       }
+    }, { passive: false });
+  });
+
+  /* ========= 3) CTAs dos planos (links externos) =========
+     Use class="cta-btn plan-cta" e NENHUM preventDefault aqui.
+     Ex.: <a class="cta-btn plan-cta" href="https://payfast.greenn.com.br/131014" ...>Assinar</a>
+  */
+  document.querySelectorAll('.plan-cta').forEach(btn => {
+    btn.addEventListener('click', () => {
+      // opcional: métricas
+      console.log('[CTA plano] clicado:', btn.href);
     });
   });
 });
